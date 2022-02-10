@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+<body>
+    <div class="form">
+        login form
+        <h3>Get in touch!</h3>
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <input id="surName"type="text" placeholder="SurName" required>
+            <input id="firstName" type="text" placeholder="First Name" required>
+            <input id="mail" type="email" placeholder="Email" required>
+            <input id="phoneNo"type="text" placeholder="Phone Number" required>
+            <textarea name="message" id="" rows="4" placeholder="Enter your message"></textarea>
+            <button class="btnSend" type="submit">SEND</button>
+        </form>
+    </div>
+    <!-- <script src="main.js"></script> -->
+    <script>
+        function sendEmail(){
+            console.log("sent");
+            Email.send({
+                Host : "smtp.gmail.com",
+                Username : "adunolaabdulrahman@gmail.com",
+                Password : "Adunola123",
+                To : 'adunolaabdulrahman@gmail.com',
+                From : document.getElementById('mail').value,
+                Subject : "This is the subject",
+                Body : "And this is the body"
+            }).then(
+            message => alert("message sent successfully")
+            );
+        }
+    </script>
+    <script src="https://smtpjs.com/v3/smtp.jsv"></script>
+</body>
+</html>
